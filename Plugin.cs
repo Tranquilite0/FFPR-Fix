@@ -93,6 +93,11 @@ public partial class Plugin : BasePlugin
             ApplyPatch(typeof(BackupSaveFiles));
         }
 
+        if (Config.RemapSpeedUpToL3.Value)
+        {
+            ApplyPatch(typeof(UnmapAutoDashKey));
+        }
+
         Log.LogInfo("Patches applied!");
     }
 

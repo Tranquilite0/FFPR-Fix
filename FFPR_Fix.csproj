@@ -9,10 +9,13 @@
     <AssemblyName>FFPR_Fix</AssemblyName>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <GameRegistryPath>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 1173820</GameRegistryPath>
+    <GameRegistryPath>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 1173810</GameRegistryPath>
     <GamePath Condition="'$(GamePath)' == ''">$([MSBuild]::GetRegistryValueFromView('$(GameRegistryPath)', 'InstallLocation', null, RegistryView.Registry32))</GamePath>
     <GamePath Condition="'$(GamePath)' == ''">$([MSBuild]::GetRegistryValueFromView('$(GameRegistryPath)', 'InstallLocation', null, RegistryView.Registry64))</GamePath>
+    <SteamLibraryPath>D:\Games\SteamLibrary\steamapps\common</SteamLibraryPath>
+    <GamePath Condition="'$(GamePath)' == ''">$(SteamLibraryPath)\FINAL FANTASY V PR</GamePath>
     <OutputPath>$(GamePath)\BepInEx\plugins\</OutputPath>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
@@ -21,7 +24,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <!--<OutputPath>bin\Debug\</OutputPath>-->
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -30,7 +33,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <!--<OutputPath>bin\Release\</OutputPath>-->
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -39,60 +42,79 @@
   <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>$(GamePath)\BepInEx\core\0Harmony.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="BepInEx.Core">
       <HintPath>$(GamePath)\BepInEx\core\BepInEx.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="BepInEx.Unity.IL2CPP">
       <HintPath>$(GamePath)\BepInEx\core\BepInEx.Unity.IL2CPP.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="BepInEx.Preloader.Core">
       <HintPath>$(GamePath)\BepInEx\core\BepInEx.Preloader.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppInterop.Runtime">
       <HintPath>$(GamePath)\BepInEx\core\Il2CppInterop.Runtime.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>$(GamePath)\BepInEx\interop\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2Cppmscorlib">
       <HintPath>$(GamePath)\BepInEx\interop\Il2Cppmscorlib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem">
       <HintPath>$(GamePath)\BepInEx\interop\Il2CppSystem.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Core">
       <HintPath>$(GamePath)\BepInEx\interop\Il2CppSystem.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UniTask">
       <HintPath>$(GamePath)\BepInEx\interop\UniTask.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Addressables">
       <HintPath>$(GamePath)\BepInEx\interop\Unity.Addressables.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.InputSystem">
       <HintPath>$(GamePath)\BepInEx\interop\Unity.InputSystem.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.ResourceManager">
       <HintPath>$(GamePath)\BepInEx\interop\Unity.ResourceManager.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>$(GamePath)\BepInEx\interop\UnityEngine.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>$(GamePath)\BepInEx\interop\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
       <HintPath>$(GamePath)\BepInEx\interop\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputModule">
       <HintPath>$(GamePath)\BepInEx\interop\UnityEngine.InputModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>$(GamePath)\BepInEx\interop\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
       <HintPath>$(GamePath)\BepInEx\interop\UnityEngine.UIElementsModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
 

@@ -101,8 +101,17 @@ public sealed class ModComponent : MonoBehaviour
         var gameTimeScale = timeScale != _lastTimeScale ? timeScale : _lastGameTimeScale;
         var newTimeScale = gameTimeScale;
 
-        var keyPageUp = InputListener.Instance?.GetKey(Il2CppSystem.Input.Key.PageUp, KeyValue.InputDeviceType.GamePad) ?? false;
-        if (keyPageUp || Input.GetKey(KeyCode.T))
+        var keySpeedUp = false;
+        if (Plugin.Config.RemapSpeedUpToL3.Value)
+        {
+            keySpeedUp = InputListener.Instance?.GetKey(Il2CppSystem.Input.Key.StickL, KeyValue.InputDeviceType.GamePad) ?? false;
+        }
+        else
+        {
+            keySpeedUp = InputListener.Instance?.GetKey(Il2CppSystem.Input.Key.PageUp, KeyValue.InputDeviceType.GamePad) ?? false;
+        }
+
+        if (keySpeedUp || Input.GetKey(KeyCode.T))
         {
             var isBattle = Last.Battle.BattlePlugManager.Instance()?.IsBattle() ?? false;
             var speedHackFactor = isBattle ? Plugin.Config.BattleSpeedHackFactor.Value : Plugin.Config.OutBattleSpeedHackFactor.Value;

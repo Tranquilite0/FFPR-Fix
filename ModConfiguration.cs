@@ -14,6 +14,7 @@ public sealed class ModConfiguration
     public ConfigEntry<float> PlayerWalkspeed;
     public ConfigEntry<float> OutBattleSpeedHackFactor;
     public ConfigEntry<float> BattleSpeedHackFactor;
+    public ConfigEntry<bool> RemapSpeedUpToL3;
     public ConfigEntry<float> ChocoboTurnFactor;
     public ConfigEntry<float> AirshipTurnFactor;
     public ConfigEntry<bool> BattleWaitPlayerCommand;
@@ -84,6 +85,13 @@ public sealed class ModConfiguration
              "BattleSpeedHackFactor",
              1f,
              "Increase or decrease the game speed by X in battle when T or PageUp (LT/L2 by default) is pressed."
+        );
+
+        RemapSpeedUpToL3 = _config.Bind(
+             "Hack",
+             nameof(RemapSpeedUpToL3),
+             false,
+             "Use L3 to change game speed instead of PageUp (LT/L2 by default)."
         );
 
         BattleWaitPlayerCommand = _config.Bind(
